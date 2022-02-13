@@ -28,6 +28,7 @@ baseurl: "/system-software" # the subpath of your site, e.g. /blog
 url: "https://insaniss.github.io" # the base hostname & protocol for your site
 
 # Build settings
+remote_theme: pmarsceill/just-the-docs
 theme: just-the-docs
 plugins:
   - jekyll-feed
