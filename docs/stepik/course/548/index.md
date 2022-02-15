@@ -13,6 +13,7 @@ nav_order: 548
 1. Введение в разработку для Linux
    1. [Основной инструментарий разработчика Linux]({% link docs/stepik/course/548/section-1.1.md %})
    2. [Динамические библиотеки и линковка]({% link docs/stepik/course/548/section-1.2.md %})
+   2. [Runtime линковка. Libdl]({% link docs/stepik/course/548/section-1.3.md %})
 2. Файлы и файловые системы
 3. Процессы и потоки
 4. Взаимодействие процессов
