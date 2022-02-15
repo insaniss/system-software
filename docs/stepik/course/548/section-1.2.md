@@ -33,18 +33,18 @@ layout: default
 int stringStat(const char *string, size_t multiplier, int *count);
 ```
 Функция возвращает значение длины строки `string`, умноженное на `multiplier`, и увеличивает
-на 1 значение, на которое указывает `count`.
+на `1` значение, на которое указывает `count`.
 
 **Представление решения**
 
-Решение предоставляется в виде двух файлов `solution.c` и `Makefile`, в последнем 
+Решение предоставляется в виде двух файлов _solution.c_ и _Makefile_, в последнем 
 предполагается цель по умолчанию, которая приводит к сборке Вашей библиотеки.
 
 **Вывод**
 
 Программа (функция в библиотеке) ничего не выводит на консоль
 
-*solution.c*
+_solution.c_
 ```c
 #include <string.h>
 
@@ -53,7 +53,8 @@ int stringStat(const char *string, size_t multiplier, int *count) {
   return (int) (strlen(string) * multiplier);
 }
 ```
-*Makefile*
+
+_Makefile_
 ```makefile
 all: solution.c
 	gcc --shared -fPIC -o libsolution.so solution.c
