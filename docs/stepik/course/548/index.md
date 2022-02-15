@@ -15,6 +15,9 @@ nav_order: 548
    2. [Динамические библиотеки и линковка]({{ site.baseurl }}{% link docs/stepik/course/548/section-1.2.md %})
    2. [Runtime линковка. Libdl]({{ site.baseurl }}{% link docs/stepik/course/548/section-1.3.md %})
 2. Файлы и файловые системы
+   1. [Базовые функции работы с файлами]({{ site.baseurl }}{% link docs/stepik/course/548/section-2.1.md %})
+   2. [Работа с каталогами и путями]({{ site.baseurl }}{% link docs/stepik/course/548/section-2.2.md %})
+   3. [Ссылки]({{ site.baseurl }}{% link docs/stepik/course/548/section-2.3.md %})
 3. Процессы и потоки
 4. Взаимодействие процессов
 5. Сетевые возможности

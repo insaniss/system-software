@@ -13,7 +13,6 @@ layout: default
 - [x] Набор компиляторов gcc
 - [ ] Утилиту screen
 - [x] Утилиту GNU make
-{: .fs-3 }
 
 ---
 
@@ -30,7 +29,6 @@ layout: default
 - [ ] 12.04
 - [ ] 17.04
 - [ ] 13.04 
-{: .fs-3 }
 
 <span class="d-block text-right">
   [Часть 1.2]({{ site.baseurl }}{% link docs/stepik/course/548/section-1.2.md %})
