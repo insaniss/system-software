@@ -60,6 +60,6 @@ all: solution.c
 ```
 
 <span class="d-block text-right">
-  [Часть 1.1]({% link docs/stepik/course/548/section-1.1.md %}){: .float-left }
-  [Часть 1.3]({% link docs/stepik/course/548/section-1.3.md %})
+  [Часть 1.1]({{ site.baseurl }}{% link docs/stepik/course/548/section-1.1.md %}){: .float-left }
+  [Часть 1.3]({{ site.baseurl }}{% link docs/stepik/course/548/section-1.3.md %})
 </span>

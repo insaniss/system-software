@@ -34,6 +34,6 @@ layout: default
 
 
 <span class="d-block text-right">
-  [Часть 1.2]({% link docs/stepik/course/548/section-1.2.md %}){: .float-left }
-  [Часть 2.1]({% link docs/stepik/course/548/section-2.1.md %})
+  [Часть 1.2]({{ site.baseurl }}{% link docs/stepik/course/548/section-1.2.md %}){: .float-left }
+  [Часть 2.1]({{ site.baseurl }}{% link docs/stepik/course/548/section-2.1.md %})
 </span>
