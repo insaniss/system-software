@@ -4,5 +4,6 @@ _site
 .jekyll-metadata
 vendor
 
+.idea
 .clang-format
 CMakeLists.txt
