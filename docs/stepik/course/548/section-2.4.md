@@ -2,7 +2,7 @@
 layout: default
 ---
 
-<span>[Часть 2.3](){: .label }</span>
+<span>[Часть 2.4](){: .label }</span>
 
 Вы запустили следующую программу. Определите какое суммарное количество системных вызовов `read`, `write`
 будет сделано в результате выполнения программы из консоли.
@@ -77,6 +77,6 @@ void print_process_parents(pid_t pid)
 - [x] Прочитать из файла `/proc/CURRENT/status` значение параметра `PPid`
 
 <span class="d-block text-right">
-  [Часть 2.2]({{ site.baseurl }}{% link docs/stepik/course/548/section-2.2.md %}){: .float-left }
-  [Часть 2.4]({{ site.baseurl }}{% link docs/stepik/course/548/section-2.4.md %})
+  [Часть 2.3]({{ site.baseurl }}{% link docs/stepik/course/548/section-2.3.md %}){: .float-left }
+  [Часть 2.5]({{ site.baseurl }}{% link docs/stepik/course/548/section-2.5.md %})
 </span>
