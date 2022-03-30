@@ -86,3 +86,7 @@ theme: just-the-docs
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
+
+# Force inclusion of directories and/or files in the conversion.
+exclude:
+  - assignment-posix/
