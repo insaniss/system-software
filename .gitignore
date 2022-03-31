@@ -5,5 +5,4 @@ _site
 vendor
 
 .idea
-.clang-format
 CMakeLists.txt
