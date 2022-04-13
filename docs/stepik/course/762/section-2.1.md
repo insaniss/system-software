@@ -20,5 +20,5 @@ $ man ls
 ```
 
 <span class="d-block text-right">
-  [Часть 1.2]({{ site.baseurl }}{% link docs/stepik/course/762/section-2.1.md %})
+  [Часть 2.2]({{ site.baseurl }}{% link docs/stepik/course/762/section-2.2.md %})
 </span>
