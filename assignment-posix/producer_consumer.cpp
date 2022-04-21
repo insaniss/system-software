@@ -32,7 +32,7 @@ struct interruptor_argument {
 
 static bool debug = false;
 
-static void print_log(int id, int sum) {
+static void print_debug_message(int id, int sum) {
   if (debug) std::fprintf(stderr, "tid=%d tsum=%d\n", id, sum);
 }
 
@@ -89,7 +89,7 @@ static void *consumer_routine(void *arg) {
     if (ready) {
       sum += *val->shared;
       ready = false;
-      print_log(get_tid(), sum);
+      print_debug_message(get_tid(), sum);
     }
     pthread_cond_signal(&cv_producer);
     pthread_mutex_unlock(&mutex);
@@ -114,11 +114,11 @@ static void *consumer_interruptor_routine(void *arg) {
 // start N threads and wait until they're done
 // return aggregate sum of value
 int run_threads(int n, int limit, bool debug_enabled) {
-  pthread_barrier_init(&barrier, nullptr, n + 1);
-
-  int shared_value, *sum, result = 0;
-  pthread_t producer_tid, interruptor_tid, *consumer_tid = new pthread_t[n];
   debug = debug_enabled;
+  pthread_t producer_tid, interruptor_tid, *consumer_tid = new pthread_t[n];
+  int shared_value, *sum, result = 0;
+
+  pthread_barrier_init(&barrier, nullptr, n + 1);
 
   pthread_create(&producer_tid, nullptr, producer_routine,
                  new producer_argument(1, &shared_value));
@@ -126,8 +126,7 @@ int run_threads(int n, int limit, bool debug_enabled) {
                  new interruptor_argument(2, consumer_tid, n));
 
   for (int i = 0; i < n; i++) {
-    pthread_create(
-        &consumer_tid[i], nullptr, consumer_routine,
+    pthread_create(&consumer_tid[i], nullptr, consumer_routine,
         new consumer_argument(3 + i, 1000 * limit + 1, &shared_value));
   }
 
