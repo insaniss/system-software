@@ -39,6 +39,7 @@ static void print_debug_message(int id, int sum) {
 static pthread_mutex_t mutex = PTHREAD_MUTEX_INITIALIZER;
 static pthread_cond_t cv_producer = PTHREAD_COND_INITIALIZER;
 static pthread_cond_t cv_consumer = PTHREAD_COND_INITIALIZER;
+static pthread_key_t tid;
 static pthread_barrier_t barrier;
 
 static bool ready = false;
@@ -46,14 +47,16 @@ static bool finished = false;
 
 // 1 to 3+N thread ID
 static int get_tid() {
-  //
-  return 0;
+  auto value = (int *) pthread_getspecific(tid);
+  return value ? *value : -1;
 }
 
 // read data, loop through each value and update the value, notify consumer,
 // wait for consumer to process
 static void *producer_routine(void *arg) {
   auto *val = static_cast<producer_argument *>(arg);
+
+  pthread_setspecific(tid, new int(val->id));
 
   while (std::cin >> *val->shared) {
     pthread_mutex_lock(&mutex);
@@ -75,11 +78,12 @@ static void *producer_routine(void *arg) {
 // for every update issued by producer, read the value and add to sum
 // return pointer to result (for particular consumer)
 static void *consumer_routine(void *arg) {
-  pthread_setcancelstate(PTHREAD_CANCEL_DISABLE, nullptr);
-  pthread_barrier_wait(&barrier);
-
   auto *val = static_cast<consumer_argument *>(arg);
   int sum = 0;
+
+  pthread_setcancelstate(PTHREAD_CANCEL_DISABLE, nullptr);
+  pthread_barrier_wait(&barrier);
+  pthread_setspecific(tid, new int(val->id));
 
   while (!finished) {
     pthread_mutex_lock(&mutex);
@@ -102,11 +106,14 @@ static void *consumer_routine(void *arg) {
 
 // interrupt random consumer while producer is running
 static void *consumer_interruptor_routine(void *arg) {
-  pthread_barrier_wait(&barrier);
-
   auto *val = static_cast<interruptor_argument *>(arg);
 
-  (void) val;
+  pthread_barrier_wait(&barrier);
+  pthread_setspecific(tid, new int(val->id));
+
+  while (!finished) {
+    pthread_cancel(val->consumers[std::rand() % val->count]);
+  }
 
   return nullptr;
 }
@@ -118,6 +125,7 @@ int run_threads(int n, int limit, bool debug_enabled) {
   pthread_t producer_tid, interruptor_tid, *consumer_tid = new pthread_t[n];
   int shared_value, *sum, result = 0;
 
+  pthread_key_create(&tid, nullptr);
   pthread_barrier_init(&barrier, nullptr, n + 1);
 
   pthread_create(&producer_tid, nullptr, producer_routine,
@@ -137,6 +145,9 @@ int run_threads(int n, int limit, bool debug_enabled) {
     pthread_join(consumer_tid[i], (void **) &sum);
     result += *sum;
   }
+
+  pthread_barrier_destroy(&barrier);
+  pthread_key_delete(tid);
 
   return result;
 }
