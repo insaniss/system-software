@@ -25,7 +25,7 @@ description: >-
   the course System Software at ITMO University.
 
 baseurl: "/system-software" # the subpath of your site, e.g. /blog
-url: "https://insaniss.github.io" # the base hostname & protocol for your site
+url: "https://octocat.github.io" # the base hostname & protocol for your site
 permalink: pretty
 
 # Enable or disable the site search
@@ -50,14 +50,14 @@ nav_sort: case_sensitive # capital letters sorted before lowercase
 # Aux links for the upper right navigation
 aux_links:
   "Exam Notes on GitHub":
-    - "//github.com/octoant/system-software"
+    - "//github.com/octoant/system-software/tree/gh-pages"
 
 # Footer content appears at the bottom of every page's main content
 # Note: The footer_content option is deprecated and will be removed in a future
 # major release. Please use `_includes/footer_custom.html` for more robust
 footer_content: >-
   Copyright &copy; 2022 Bobur Zakirov. Distributed by an 
-  <a href="https://github.com/octoant/system-software/blob/master/LICENSE">
+  <a href="https://github.com/octoant/system-software/blob/gh-pages/LICENSE">
     MIT license.
   </a>
 
@@ -72,7 +72,7 @@ gh_edit_link: true # show or hide edit this page link
 gh_edit_link_text: "Edit this page on GitHub"
 # # the github URL for your repo
 gh_edit_repository: "https://github.com/insaniss/system-software"
-gh_edit_branch: "master" # the branch that your docs is served from
+gh_edit_branch: "gh-pages" # the branch that your docs is served from
 # "tree" or "edit" if you want the user to jump into the editor immediately
 gh_edit_view_mode: "edit"
 
