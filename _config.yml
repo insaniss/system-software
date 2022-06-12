@@ -24,8 +24,8 @@ description: >-
   gained and prepare answers to examination questions for
   the course System Software at ITMO University.
 
-baseurl: "/system-software" # the subpath of your site, e.g. /blog
-url: "https://octocat.github.io" # the base hostname & protocol for your site
+baseurl: "/system-software/tree/gh-pages" # the subpath of your site, e.g. /blog
+url: "https://octoant.github.io" # the base hostname & protocol for your site
 permalink: pretty
 
 # Enable or disable the site search
