@@ -24,7 +24,7 @@ description: >-
   gained and prepare answers to examination questions for
   the course System Software at ITMO University.
 
-baseurl: "/system-software/tree/gh-pages" # the subpath of your site, e.g. /blog
+baseurl: "/system-software" # the subpath of your site, e.g. /blog
 url: "https://octoant.github.io" # the base hostname & protocol for your site
 permalink: pretty
 
@@ -74,7 +74,7 @@ gh_edit_link_text: "Edit this page on GitHub"
 gh_edit_repository: "https://github.com/octoant/system-software"
 gh_edit_branch: "gh-pages" # the branch that your docs is served from
 # "tree" or "edit" if you want the user to jump into the editor immediately
-gh_edit_view_mode: "edit"
+gh_edit_view_mode: "tree"
 
 # Back to top link
 back_to_top: true
